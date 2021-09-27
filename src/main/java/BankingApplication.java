@@ -1,4 +1,6 @@
+import java.util.Random;
 import java.util.Scanner;
+
 
 public class BankingApplication {
     public static void main(String[] args) {
@@ -15,18 +17,18 @@ public class BankingApplication {
 
         double amount;
         double transferFromAmount;
-        String verify;
+        String verifyInfo;
         String correctedName;
         String correctedAddress;
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter customer name: ");
-        custName = scanner.next();
-        System.out.print("Enter customer address: ");
-        custAddress = scanner.next();
-        System.out.print("Enter how much is initially deposited: ");
+        System.out.println("Enter customer name: ");
+        custName = scanner.nextLine();
+        System.out.println("Enter customer address: ");
+        custAddress = scanner.nextLine();
+        System.out.println("Enter how much is initially deposited: ");
         ckgBalance = scanner.nextDouble();
-        System.out.print("\n");
+        System.out.println("\n");
 
         BankAccount bankAccount = new BankAccount(custName,custAddress,"123456","Checking",ckgBalance,1234,100);
 
@@ -40,19 +42,19 @@ public class BankingApplication {
         System.out.println("Number of starter checks: " + bankAccount.checks);
         System.out.println();
         System.out.print("Is this information correct? (Y/N): ");
-        verify = scanner.next();
-        if(verify.equals("N")) {
+        verifyInfo = scanner.next();
+        if(verifyInfo.equals("N")) {
             System.out.print("Is name correct? (Y/N): ");
-            verify = scanner.next();
-            if(verify.equals("N")) {
+            verifyInfo = scanner.next();
+            if(verifyInfo.equals("N")) {
                 System.out.print("Enter name again: ");
                 correctedName = scanner.next();
                 bankAccount.setCustName(correctedName);
                 System.out.println("Name has been corrected to: " + bankAccount.getCustName());
             }
             System.out.print("Is the address correct? (Y/N): ");
-            verify = scanner.next();
-            if(verify.equals("N")) {
+            verifyInfo = scanner.next();
+            if(verifyInfo.equals("N")) {
                 System.out.print("Enter address again: ");
                 correctedAddress = scanner.next();
                 bankAccount.setCustAddress(correctedAddress);
